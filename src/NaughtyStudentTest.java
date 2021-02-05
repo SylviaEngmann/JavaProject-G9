@@ -1,8 +1,23 @@
+import org.junit.jupiter.api.Test;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class NaughtyStudentTest {
 
-    @org.junit.jupiter.api.Test
-    void getAverageGrade() {
+    @Test
+    void TestNaughtystudentIsKindOfStudent() {
+        List<Double> student1Grades = new ArrayList<>();
+        NaughtyStudent naughtyStudent = new NaughtyStudent(student1Grades);
+
+       // Student student = new Student();
+
+        //assertEquals(student, naughtyStudent);
+        assertTrue(naughtyStudent instanceof Student);
+
+
+
     }
 }
