@@ -1,16 +1,23 @@
 import java.util.List;
 
-public class Student {
+public class Student implements Nameable, HasLevel {
 
     public List<Double> grades;
+    private String name;
+    private  Level level;
+
 
     public Student (){
 
     }
 
-    public Student (List<Double> grades){
+    public Student (List<Double> grades, Level level){
         this.grades = grades;
+        this.level =level;
     }
+
+
+
 
     public double getAverageGrade() {
         double sum = 0;
@@ -21,5 +28,14 @@ public class Student {
         }
         average = sum/num_grades;
         return average;
+    }
+
+
+    public String getName() {
+        return this.name;
+    }
+
+    public Level getLevel(){
+        return level;
     }
 }

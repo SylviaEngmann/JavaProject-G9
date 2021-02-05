@@ -14,4 +14,5 @@ public class Lecture {
         Collections.sort(studentsGrades);
         return studentsGrades.get(studentsGrades.size()-1);
     }
+
 }
