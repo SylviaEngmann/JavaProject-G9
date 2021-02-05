@@ -6,11 +6,15 @@ class StudentTest {
 @Test
     void TestAverageGradeEqualsDouble() {
 
-//        double sum=20;
-//        int num_grades=5;
-//        double average=sum/num_grades;
-//
-//        assertEquals(4, average);
+        double sum=20;
+        int num_grades=5;
+        double average=sum/num_grades;
+
+        assertEquals(4, average);
+    }
+
+    @Test
+    void TestAverageGradeNotNull(){
         Student student = new Student();
         assertNotNull(student.getAverageGrade());
     }
