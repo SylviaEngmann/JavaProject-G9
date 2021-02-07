@@ -4,13 +4,17 @@ import java.util.List;
 
 public class Lecture {
 
-    List<Double> studentsGrades = new ArrayList<>();
+    List<Student> students = new ArrayList<>();
 
     public void enter (Student student){
-        studentsGrades.add(student.getAverageGrade());
+        students.add(student);
     }
 
     public double getHighestAverageGrade (){
+        List<Double> studentsGrades = new ArrayList<>();
+        for (var student:this.students){
+            studentsGrades.add(student.getAverageGrade());
+        }
         Collections.sort(studentsGrades);
         return studentsGrades.get(studentsGrades.size()-1);
     }

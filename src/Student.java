@@ -17,6 +17,7 @@ public class Student implements Nameable, HasLevel {
     public Student (List<Double> grades, Level level, String name){
         this.grades = grades;
         this.level =level;
+
         this.name =name;
     }
 
@@ -28,6 +29,10 @@ public class Student implements Nameable, HasLevel {
                 ", level=" + level +
                 '}';
     }
+
+
+
+
 
     public double getAverageGrade() {
 //        double sum = 0;
