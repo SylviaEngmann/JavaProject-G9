@@ -19,13 +19,44 @@ public class Main {
         student3Grades.add(65.0);
 
 
-        NaughtyStudent naughtyStudent1 = new NaughtyStudent(student1Grades);
-        NaughtyStudent naughtyStudent2 = new NaughtyStudent(student2Grades);
-        NaughtyStudent naughtyStudent3 = new NaughtyStudent(student3Grades);
+        NaughtyStudent naughtyStudent1 = new NaughtyStudent(student1Grades,Level.LEVEL200,"fred");
+        NaughtyStudent naughtyStudent2 = new NaughtyStudent(student2Grades,Level.LEVEL300,"kofi");
+        NaughtyStudent naughtyStudent3 = new NaughtyStudent(student3Grades,Level.LEVEL100,"ama");
 
-//        Student student1 = new Student(student1Grades);
-//        Student student2 = new Student(student2Grades);
-//        Student student3 = new Student(student3Grades);
+        Student student1 = new Student(student1Grades,Level.LEVEL200,"fred");
+        Student student2 = new Student(student2Grades,Level.LEVEL300,"kofi");
+        Student student3 = new Student(student3Grades,Level.LEVEL100,"ama");
+        Student student4 = new Student(student3Grades,Level.LEVEL100,"ama");
+        List<Student>allStudents = new ArrayList<>();
+        List<NaughtyStudent>allNaughtyStudents = new ArrayList<>();
+        allStudents.add(student1);
+        allStudents.add(student4);
+        allStudents.add(student2);
+        allStudents.add(student3);
+
+        //naughty students
+        allNaughtyStudents.add(naughtyStudent1);
+        allNaughtyStudents.add(naughtyStudent2);
+        allNaughtyStudents.add(naughtyStudent3);
+        Register<NaughtyStudent> register = new Register(allNaughtyStudents);
+        Register<Student>register1 = new Register(allStudents);
+        //System.out.println( register1.getRegisterByLevel(Level.LEVEL100));
+        //System.out.println( register1.findAverage());
+        register1.getGradesAbove60();
+
+//        //register1.getStudentByName("ama");
+//       try {
+//           System.out.println(register1.getStudentByName("amas"));
+//       }catch (StudentNotFoundException e){
+//           System.out.println("no student with the name"+" "+e.getParam()+" "+"found");
+//          // e.printStackTrace();
+//       }
+
+
+        //register.sortStudent(new StudentSortComparator());
+
+//        System.out.println("normal students");
+//        register1.sortStudent(new StudentSortComparator());
 //        System.out.println("naughty student grades");
 //        lecture.enter(naughtyStudent1);
 //        lecture.enter(naughtyStudent2);

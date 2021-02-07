@@ -10,7 +10,7 @@ class NaughtyStudentTest {
     @Test
     void TestNaughtystudentIsKindOfStudent() {
         List<Double> student1Grades = new ArrayList<>();
-        NaughtyStudent naughtyStudent = new NaughtyStudent(student1Grades);
+        NaughtyStudent naughtyStudent = new NaughtyStudent(student1Grades, Level.LEVEL100,"kofi");
 
        // Student student = new Student();
 

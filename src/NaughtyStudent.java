@@ -1,15 +1,15 @@
 import java.util.List;
 
 public class NaughtyStudent extends Student{
-    public NaughtyStudent(List<Double> grades){
-        super(grades);
+    public NaughtyStudent(List<Double> grades, Level level, String name){
+        super(grades,level,name);
     }
     public double getAverageGrade() {
         double sum = 0;
         double average;
-        int num_grades = grades.size();
+        int num_grades = getGrades().size();
         for(int i = 0; i <num_grades; i++){
-            sum += grades.get(i);
+            sum += getGrades().get(i);
         }
         average = sum/num_grades;
         average += 0.10* average;
