@@ -114,9 +114,7 @@ public class Register<T> {
 
         // returns students grades with average over 60
         public List<Student> getGradesAbove60 () {
-//           Map<Boolean,List<com.group9.student.Student>> studentsAbovedo = this.students.stream()
-//                   .collect(Collectors.partitioningBy(item->item.getAverageGrade()>60.0,Collectors.));
-//           return studentsAbovedo;
+
             List<Student>studs = this.students.stream().filter(item->item.getAverageGrade()>60.0)
                     .collect(Collectors.toList());
             return studs;
