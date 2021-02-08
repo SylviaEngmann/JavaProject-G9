@@ -1,7 +1,10 @@
+package com.group9.register;
 
+import com.group9.student.Student;
+import com.group9.student.StudentNotFoundException;
+import com.group9.enums.Level;
 
 import java.util.*;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.DoubleStream;
 
@@ -30,8 +33,8 @@ public class Register<T> {
 
     //returns filtered students by given level
     public Map<Level,List<Student>>getRegisterByLevel(Level level){
-//        Map<Level,List<Student>>studentsByLevel = new HashMap<>();
-//        List<Student>studentList = new ArrayList<>();
+//        Map<com.group9.enums.Level,List<com.group9.student.Student>>studentsByLevel = new HashMap<>();
+//        List<com.group9.student.Student>studentList = new ArrayList<>();
 //        for (var student:this.students){
 //            if(student.getLevel()==level)
 //                    studentList.add(student);
@@ -56,7 +59,7 @@ public class Register<T> {
 
     }
 
-    //throws StudentNotFoundException if no student found
+    //throws com.group9.student.StudentNotFoundException if no student found
     public List<Student>getStudentByName(String name) throws StudentNotFoundException {
         List<Student> names = this.students.stream().filter(student -> student.getName().equals(name))
                 .collect(Collectors.toList());
@@ -80,10 +83,10 @@ public class Register<T> {
 
     //TODO complete findStudentByName method
 
-//        public List<Student> findStudentsByName(List<String>names) {
-//            List<Student> studs = new ArrayList<>();
+//        public List<com.group9.student.Student> findStudentsByName(List<String>names) {
+//            List<com.group9.student.Student> studs = new ArrayList<>();
 //            names.stream().map((item) -> {
-//                List<Student> stds = this.students.stream().filter((student -> student.getName().equals(item)))
+//                List<com.group9.student.Student> stds = this.students.stream().filter((student -> student.getName().equals(item)))
 //                        .collect(Collectors.toList());
 //
 //                return studs.add(stds.contains(item));
@@ -111,7 +114,7 @@ public class Register<T> {
 
         // returns students grades with average over 60
         public List<Student> getGradesAbove60 () {
-//           Map<Boolean,List<Student>> studentsAbovedo = this.students.stream()
+//           Map<Boolean,List<com.group9.student.Student>> studentsAbovedo = this.students.stream()
 //                   .collect(Collectors.partitioningBy(item->item.getAverageGrade()>60.0,Collectors.));
 //           return studentsAbovedo;
             List<Student>studs = this.students.stream().filter(item->item.getAverageGrade()>60.0)

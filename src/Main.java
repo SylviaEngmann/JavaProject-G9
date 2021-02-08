@@ -1,3 +1,9 @@
+import com.group9.enums.Level;
+import com.group9.lecture.Lecture;
+import com.group9.register.Register;
+import com.group9.student.NaughtyStudent;
+import com.group9.student.Student;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,7 +29,7 @@ public class Main {
 
 
 
-        NaughtyStudent naughtyStudent1 = new NaughtyStudent(student1Grades,Level.LEVEL100,"eee");
+        NaughtyStudent naughtyStudent1 = new NaughtyStudent(student1Grades, Level.LEVEL100,"eee");
         NaughtyStudent naughtyStudent2 = new NaughtyStudent(student2Grades,Level.LEVEL300,"bbb");
         NaughtyStudent naughtyStudent3 = new NaughtyStudent(student3Grades,Level.LEVEL400,"AAA");
 
@@ -48,32 +54,32 @@ public class Main {
         allNaughtyStudents.add(naughtyStudent3);
         Register<NaughtyStudent> register = new Register(allNaughtyStudents);
         Register<Student>register1 = new Register(allStudents);
-        //System.out.println( register1.getRegisterByLevel(Level.LEVEL100));
+        //System.out.println( register1.getRegisterByLevel(com.group9.enums.Level.LEVEL100));
         //System.out.println( register1.findAverage());
         //System.out.println(register1.studentByName("Ama"));
-        System.out.println(register1.printReport());
+        System.out.println(register1.getGradesAbove60());
 
 
 //        //register1.getStudentByName("ama");
 //       try {
 //           System.out.println(register1.getStudentByName("amas"));
-//       }catch (StudentNotFoundException e){
+//       }catch (com.group9.student.StudentNotFoundException e){
 //           System.out.println("no student with the name"+" "+e.getParam()+" "+"found");
 //          // e.printStackTrace();
 //       }
 
 
-        //register.sortStudent(new StudentSortComparator());
+        //register.sortStudent(new com.group9.student.StudentSortComparator());
 
 //        System.out.println("normal students");
-//        register1.sortStudent(new StudentSortComparator());
+//        register1.sortStudent(new com.group9.student.StudentSortComparator());
 //        System.out.println("naughty student grades");
 
 //        lecture.enter(naughtyStudent1);
 //        lecture.enter(naughtyStudent2);
 //        lecture.enter(naughtyStudent3);
         //System.out.println(register.getRegister());
-        //System.out.println(register.getRegisterByLevel(Level.LEVEL200));
+        //System.out.println(register.getRegisterByLevel(com.group9.enums.Level.LEVEL200));
         //register.printReport();
 
         //System.out.println("normal student grades");
@@ -82,8 +88,8 @@ public class Main {
 //      lecture.enter(student3);
         //System.out.println(lecture.students);
 
-//        Bag<Student> bagOfStudents = new Bag<>();
-//        Bag<Lecture> bagOfLectures = new Bag<>();
+//        Bag<com.group9.student.Student> bagOfStudents = new Bag<>();
+//        Bag<com.group9.lecture.Lecture> bagOfLectures = new Bag<>();
 
     }
 }

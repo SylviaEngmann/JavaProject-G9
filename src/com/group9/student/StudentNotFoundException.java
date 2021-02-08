@@ -1,3 +1,5 @@
+package com.group9.student;
+
 public class StudentNotFoundException extends Exception
 {
     private String param;

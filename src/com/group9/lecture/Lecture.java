@@ -1,3 +1,7 @@
+package com.group9.lecture;
+
+import com.group9.student.Student;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;

@@ -1,3 +1,8 @@
+package com.group9.student;
+import com.group9.interfaces.HasLevel;
+import com.group9.interfaces.Nameable;
+import com.group9.enums.Level;
+
 import java.util.List;
 import java.util.OptionalDouble;
 import java.util.stream.Collectors;
@@ -7,7 +12,7 @@ public class Student implements Nameable, HasLevel {
 
     private List<Double> grades;
     private String name;
-    private  Level level;
+    private Level level;
 
 
     public Student (){

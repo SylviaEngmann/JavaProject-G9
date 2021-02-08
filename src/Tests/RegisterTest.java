@@ -1,3 +1,9 @@
+package Tests;
+
+import com.group9.register.Register;
+import com.group9.student.Student;
+import com.group9.student.StudentNotFoundException;
+import com.group9.enums.Level;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;

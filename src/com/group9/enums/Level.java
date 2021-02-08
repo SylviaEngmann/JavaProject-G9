@@ -1,3 +1,5 @@
+package com.group9.enums;
+
 public enum Level {
     LEVEL100,
     LEVEL200,
