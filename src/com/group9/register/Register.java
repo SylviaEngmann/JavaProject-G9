@@ -105,10 +105,10 @@ public class Register<T> {
 
         // returns averages of students
         public List<Double> findAverage () {
-            DoubleStream grades = this.students.stream().mapToDouble(Student::getAverageGrade);
-            List<Double> averageGrades = new ArrayList<>();
-            grades.forEach(averageGrades::add);
-            return averageGrades;
+
+        return this.students.stream().map(Student::getAverageGrade).collect(Collectors.toList());
+
+
 
         }
 
@@ -118,6 +118,8 @@ public class Register<T> {
             List<Student>studs = this.students.stream().filter(item->item.getAverageGrade()>60.0)
                     .collect(Collectors.toList());
             return studs;
+            return this.findAverage().stream().filter(item->item.doubleValue()>60.0)
+                    .collect(Collectors.toList())
 
         }
 
