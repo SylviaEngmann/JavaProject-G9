@@ -136,5 +136,21 @@ public class Register<T> {
 //
                 return studentGroupByLevel;
             }
+
+//    public  List<Student> getStudentsByName (List<String> listOfNames){
+//        if(!students.isEmpty()){
+//            for(String name: listOfNames){
+//
+//                for(Student s:students){
+//                    if (name.equals(s.getName())){
+//                        // name match found
+//
+//                    }
+//                }
+//            }
+//        }
+//
+//
+//    }
 }
 
