@@ -1,6 +1,7 @@
 
 
 import java.util.*;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.DoubleStream;
 
@@ -11,7 +12,7 @@ public class Register<T> {
         this.students = students;
     }
 
-
+    // returns all students
     public List<Student> getRegister(){
 //        List<String>names = new ArrayList<>();
 //
@@ -27,6 +28,7 @@ public class Register<T> {
         return allStudentNames;
     }
 
+    //returns filtered students by given level
     public Map<Level,List<Student>>getRegisterByLevel(Level level){
 //        Map<Level,List<Student>>studentsByLevel = new HashMap<>();
 //        List<Student>studentList = new ArrayList<>();
@@ -43,15 +45,18 @@ public class Register<T> {
 
     }
 
-    public void sortStudent(){
+    // returns sorted students by given parameter
+    public List<Student> sortStudent(){
          //Collections.sort(this.students,studentComparator);
          List<Student>sortedStudent= this.students.stream()
                  .sorted(Comparator.comparing(student->student.getName() ))
                  .collect(Collectors.toList());
-         sortedStudent.forEach(System.out::println);
+         return sortedStudent;
+         //sortedStudent.forEach(System.out::println);
 
     }
 
+    //throws StudentNotFoundException if no student found
     public List<Student>getStudentByName(String name) throws StudentNotFoundException {
         List<Student> names = this.students.stream().filter(student -> student.getName().equals(name))
                 .collect(Collectors.toList());
@@ -61,41 +66,72 @@ public class Register<T> {
         return names;
     }
 
-        public Optional<Student> StudentByName (List <String> names) {
-            List<Student> namess = this.students.stream().filter(student -> student.getName().equals(names))
+        // returns filtered students by given name
+        public Optional<List<Student>> studentByName (String names) {
+            List<Student>studentNames = this.students.stream().filter(student -> student.getName().equals(names))
                     .collect(Collectors.toList());
+            Optional<List<Student>>studs = Optional.ofNullable(studentNames);
 
-            return Optional.ofNullable(namess);
+            return studs;
 
         }
 
 
+
+    //TODO complete findStudentByName method
+
+//        public List<Student> findStudentsByName(List<String>names) {
+//            List<Student> studs = new ArrayList<>();
+//            names.stream().map((item) -> {
+//                List<Student> stds = this.students.stream().filter((student -> student.getName().equals(item)))
+//                        .collect(Collectors.toList());
+//
+//                return studs.add(stds.contains(item));
+//            });
+//
+//
+//            return studs;
+//        }
+
+    //TODO:complete getHighestGrade method
 //    public List<Double> getHighestGrade(){
 //       List<Double>grades = this.students.stream().forEach(student -> student.getGrades())
 //
 //
 //    }
 
+        // returns averages of students
         public List<Double> findAverage () {
-
             DoubleStream grades = this.students.stream().mapToDouble(Student::getAverageGrade);
             List<Double> averageGrades = new ArrayList<>();
-            grades.forEach(student -> averageGrades.add(student));
+            grades.forEach(averageGrades::add);
             return averageGrades;
 
         }
-//TODO:Complete getGradesAbove60
-        public void getGradesAbove60 () {
-            List<Student> grades = this.students;
-            grades.forEach(item -> System.out.println(item.getGrades()));
+
+        // returns students grades with average over 60
+        public List<Student> getGradesAbove60 () {
+//           Map<Boolean,List<Student>> studentsAbovedo = this.students.stream()
+//                   .collect(Collectors.partitioningBy(item->item.getAverageGrade()>60.0,Collectors.));
+//           return studentsAbovedo;
+            List<Student>studs = this.students.stream().filter(item->item.getAverageGrade()>60.0)
+                    .collect(Collectors.toList());
+            return studs;
+
         }
 
 
 
-            public void printReport () {
-                for (var student : this.students) {
-                    System.out.println(student.getName() + " " + student.getLevel());
-                }
+        // returns students group by their levels
+            public Map<Level,List<Student>> printReport () {
+//
+//
+                Map<Level,List<Student>>studentGroupByLevel = this.students.stream()
+                        .sorted(Comparator.comparing(student -> student.getLevel()))
+                        .collect(Collectors.groupingBy(Student::getLevel));
+
+//
+                return studentGroupByLevel;
             }
 }
 

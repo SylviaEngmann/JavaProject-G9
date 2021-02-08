@@ -28,7 +28,7 @@ public class Main {
         NaughtyStudent naughtyStudent3 = new NaughtyStudent(student3Grades,Level.LEVEL400,"AAA");
 
         Student student1 = new Student(student1Grades,Level.LEVEL100,"Ama" );
-        Student student2 = new Student(student2Grades, Level.LEVEL300, "Kojo");
+        Student student2 = new Student(student2Grades, Level.LEVEL100, "Kojo");
         Student student3 = new Student(student3Grades, Level.LEVEL200, "Esi");
         Student student4 = new Student(student4Grades, Level.LEVEL400, "Ama");
 
@@ -50,7 +50,9 @@ public class Main {
         Register<Student>register1 = new Register(allStudents);
         //System.out.println( register1.getRegisterByLevel(Level.LEVEL100));
         //System.out.println( register1.findAverage());
-        register1.getGradesAbove60();
+        //System.out.println(register1.studentByName("Ama"));
+        System.out.println(register1.printReport());
+
 
 //        //register1.getStudentByName("ama");
 //       try {
@@ -70,9 +72,9 @@ public class Main {
 //        lecture.enter(naughtyStudent1);
 //        lecture.enter(naughtyStudent2);
 //        lecture.enter(naughtyStudent3);
-        System.out.println(register.getRegister());
+        //System.out.println(register.getRegister());
         //System.out.println(register.getRegisterByLevel(Level.LEVEL200));
-        register.printReport();
+        //register.printReport();
 
         //System.out.println("normal student grades");
 //      lecture.enter(student1);
@@ -80,8 +82,8 @@ public class Main {
 //      lecture.enter(student3);
         //System.out.println(lecture.students);
 
-        Bag<Student> bagOfStudents = new Bag<>();
-        Bag<Lecture> bagOfLectures = new Bag<>();
+//        Bag<Student> bagOfStudents = new Bag<>();
+//        Bag<Lecture> bagOfLectures = new Bag<>();
 
     }
 }
