@@ -1,3 +1,8 @@
+package Tests;
+
+import com.group9.student.NaughtyStudent;
+import com.group9.student.Student;
+import com.group9.enums.Level;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -10,11 +15,10 @@ class NaughtyStudentTest {
     @Test
     void TestNaughtystudentIsKindOfStudent() {
         List<Double> student1Grades = new ArrayList<>();
-        String name = "YYY";
-        Level level = Level.LEVEL200;
-        NaughtyStudent naughtyStudent = new NaughtyStudent(student1Grades,level, name);
 
-       // Student student = new Student();
+        NaughtyStudent naughtyStudent = new NaughtyStudent(student1Grades, Level.LEVEL100,"kofi");
+
+       // com.group9.student.Student student = new com.group9.student.Student();
 
         //assertEquals(student, naughtyStudent);
         assertTrue(naughtyStudent instanceof Student);
