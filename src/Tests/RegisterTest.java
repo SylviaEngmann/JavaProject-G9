@@ -4,6 +4,8 @@ import com.group9.register.Register;
 import com.group9.student.Student;
 import com.group9.student.StudentNotFoundException;
 import com.group9.enums.Level;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -12,9 +14,10 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 class RegisterTest {
+    Register register;
 
-    @Test
-    void TesGetStudentByName() throws StudentNotFoundException {
+    @BeforeEach
+    public  void setUp(){
 
         List<Double>student1Grades = new ArrayList<>();
         List<Double>student2Grades = new ArrayList<>();
@@ -33,8 +36,17 @@ class RegisterTest {
 
         allStudents.add(student1);
         allStudents.add(student2);
-        Register register = new Register(allStudents);
+        register = new Register(allStudents);
+    }
 
-        assertFalse(register.getStudentByName("kofi").isEmpty());
+
+    @Test
+    void shouldThrowStudentNotFoundException() {
+
+        //Register register = new Register(allStudents);
+
+        Assertions.assertThrows(StudentNotFoundException.class,()->{
+            register.getStudentByName("ama");
+        });
     }
 }

@@ -18,9 +18,7 @@ class NaughtyStudentTest {
 
         NaughtyStudent naughtyStudent = new NaughtyStudent(student1Grades, Level.LEVEL100,"kofi");
 
-       // com.group9.student.Student student = new com.group9.student.Student();
 
-        //assertEquals(student, naughtyStudent);
         assertTrue(naughtyStudent instanceof Student);
 
 
