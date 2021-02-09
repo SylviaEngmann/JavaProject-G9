@@ -15,12 +15,8 @@ public class Lecture {
     }
 
     public double getHighestAverageGrade (){
-        List<Double> studentsGrades = new ArrayList<>();
-        for (var student:this.students){
-            studentsGrades.add(student.getAverageGrade());
-        }
-        Collections.sort(studentsGrades);
-        return studentsGrades.get(studentsGrades.size()-1);
+
+        return this.students.stream().map(Student::getAverageGrade).max(Double::compareTo).get();
     }
 
 }

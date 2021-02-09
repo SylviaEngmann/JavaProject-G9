@@ -4,9 +4,8 @@ import com.group9.interfaces.Nameable;
 import com.group9.enums.Level;
 
 import java.util.List;
-import java.util.OptionalDouble;
-import java.util.stream.Collectors;
-import java.util.stream.DoubleStream;
+
+import java.util.stream.Stream;
 
 public class Student implements Nameable, HasLevel {
 
@@ -40,16 +39,9 @@ public class Student implements Nameable, HasLevel {
 
 
     public double getAverageGrade() {
-//        double sum = 0;
-        double average;
-//        int num_grades = grades.size();
-//        for(int i = 0; i <num_grades; i++){
-//            sum += grades.get(i);
-//        }
-//        average = sum/num_grades;
-        DoubleStream stream = this.getGradesAsStream(); //this.grades.stream().mapToDouble(Double::doubleValue);
-         average = stream.average().getAsDouble();
-        return average;
+
+        return this.getGradesAsStream().mapToDouble(Double::doubleValue).average().getAsDouble();
+
     }
 
 
@@ -65,9 +57,9 @@ public class Student implements Nameable, HasLevel {
         return grades;
     }
 
-    public DoubleStream getGradesAsStream(){
-       DoubleStream stream =  this.grades.stream().mapToDouble(Double::doubleValue);
-       return stream;
+    public Stream<Double> getGradesAsStream(){
+        return this.grades.stream();
+
     }
 
 }
