@@ -5,6 +5,7 @@ import com.group9.student.NaughtyStudent;
 import com.group9.student.Student;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Main {
@@ -54,42 +55,12 @@ public class Main {
         allNaughtyStudents.add(naughtyStudent3);
         Register<NaughtyStudent> register = new Register(allNaughtyStudents);
         Register<Student>register1 = new Register(allStudents);
-        //System.out.println( register1.getRegisterByLevel(com.group9.enums.Level.LEVEL100));
-        //System.out.println( register1.findAverage());
-        //System.out.println(register1.studentByName("Ama"));
-        System.out.println(register1.getGradesAbove60());
+
+        System.out.println(register1.findStudentsByName(Arrays.asList("Ama","Esi")));
 
 
-//        //register1.getStudentByName("ama");
-//       try {
-//           System.out.println(register1.getStudentByName("amas"));
-//       }catch (com.group9.student.StudentNotFoundException e){
-//           System.out.println("no student with the name"+" "+e.getParam()+" "+"found");
-//          // e.printStackTrace();
-//       }
 
 
-        //register.sortStudent(new com.group9.student.StudentSortComparator());
-
-//        System.out.println("normal students");
-//        register1.sortStudent(new com.group9.student.StudentSortComparator());
-//        System.out.println("naughty student grades");
-
-//        lecture.enter(naughtyStudent1);
-//        lecture.enter(naughtyStudent2);
-//        lecture.enter(naughtyStudent3);
-        //System.out.println(register.getRegister());
-        //System.out.println(register.getRegisterByLevel(com.group9.enums.Level.LEVEL200));
-        //register.printReport();
-
-        //System.out.println("normal student grades");
-//      lecture.enter(student1);
-//      lecture.enter(student2);
-//      lecture.enter(student3);
-        //System.out.println(lecture.students);
-
-//        Bag<com.group9.student.Student> bagOfStudents = new Bag<>();
-//        Bag<com.group9.lecture.Lecture> bagOfLectures = new Bag<>();
 
     }
 }
