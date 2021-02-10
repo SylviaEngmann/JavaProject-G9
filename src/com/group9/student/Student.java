@@ -5,6 +5,7 @@ import com.group9.enums.Level;
 
 import java.util.List;
 
+import java.util.stream.DoubleStream;
 import java.util.stream.Stream;
 
 public class Student implements Nameable, HasLevel {
@@ -40,7 +41,7 @@ public class Student implements Nameable, HasLevel {
 
     public double getAverageGrade() {
 
-        return this.getGradesAsStream().mapToDouble(Double::doubleValue).average().getAsDouble();
+        return this.getGradesAsStream().average().getAsDouble();
 
     }
 
@@ -57,8 +58,8 @@ public class Student implements Nameable, HasLevel {
         return grades;
     }
 
-    public Stream<Double> getGradesAsStream(){
-        return this.grades.stream();
+    public DoubleStream getGradesAsStream(){
+        return this.grades.stream().mapToDouble(Double::doubleValue);
 
     }
 

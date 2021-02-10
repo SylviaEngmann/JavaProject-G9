@@ -6,10 +6,11 @@ import com.group9.enums.Level;
 
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
-public class Register<T> {
-    List<Student>students;
-    public  Register(List<Student>students){
+public class Register<T extends Student> {
+    List<T>students;
+    public  Register(List<T>students){
 
         this.students = students;
     }
@@ -33,10 +34,10 @@ public class Register<T> {
     }
 
     // returns sorted students by given parameter
-    public List<Student> sortStudent(){
+    public List<Student> sortStudent(Comparator<Student>student){
          //Collections.sort(this.students,studentComparator);
          return this.students.stream()
-                 .sorted(Comparator.comparing(student->student.getName() ))
+                 .sorted(student)
                  .collect(Collectors.toList());
 
 
@@ -62,27 +63,27 @@ public class Register<T> {
 
 
 
-    //TODO complete findStudentByName method
+    //returns students  find in a list of names
+        public List<Student> findStudentsByName(List<String>names) {
 
-//        public List<com.group9.student.Student> findStudentsByName(List<String>names) {
-//            List<com.group9.student.Student> studs = new ArrayList<>();
-//            names.stream().map((item) -> {
-//                List<com.group9.student.Student> stds = this.students.stream().filter((student -> student.getName().equals(item)))
-//                        .collect(Collectors.toList());
-//
-//                return studs.add(stds.contains(item));
-//            });
-//
-//
-//            return studs;
-//        }
+           return this.students.stream().map(student->{
+                List<Student>filteredStudent = new ArrayList<>();
+                names.stream().forEach(name->{
+                    if(student.getName().equals(name))
+                        filteredStudent.add(student);
 
-    //TODO:complete getHighestGrade method
-//    public List<Double> getHighestGrade(){
-//       List<Double>grades = this.students.stream().forEach(student -> student.getGrades())
-//
-//
-//    }
+                });
+                return filteredStudent;
+            }).flatMap(Collection::stream).collect(Collectors.toList());
+
+        }
+
+    //returns highest grade of all students grade
+    public double getHighestGrade(){
+       return this.students.stream().map(student->student.getGrades()).flatMap(Collection::stream)
+               .mapToDouble(Double::doubleValue).max().getAsDouble();
+
+    }
 
         // returns averages of students
         public List<Double> findAverage () {
@@ -104,31 +105,17 @@ public class Register<T> {
 
 
         // returns students group by their levels
-            public Map<Level,List<Student>> printReport () {
+            public void printReport () {
 
 
-                return this.students.stream()
-                        .sorted(Comparator.comparing(student -> student.getLevel()))
-                        .collect(Collectors.groupingBy(Student::getLevel));
+                 this.students.stream()
+                        .sorted(Comparator.comparing(Student::getLevel))
+                        .forEach(student-> System.out.printf(student.getName()+" "+student.getLevel()));
 
 
 
             }
 
-//    public  List<Student> getStudentsByName (List<String> listOfNames){
-//        if(!students.isEmpty()){
-//            for(String name: listOfNames){
-//
-//                for(Student s:students){
-//                    if (name.equals(s.getName())){
-//                        // name match found
-//
-//                    }
-//                }
-//            }
-//        }
-//
-//
-//    }
+
 }
 

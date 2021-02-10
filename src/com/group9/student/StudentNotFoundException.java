@@ -1,7 +1,8 @@
 package com.group9.student;
 
-public class StudentNotFoundException extends Exception
-{
+import java.util.function.Supplier;
+
+public class StudentNotFoundException extends Exception{
     private String param;
     public StudentNotFoundException(String param){
         this.param = param;
@@ -11,4 +12,6 @@ public class StudentNotFoundException extends Exception
     public String getParam(){
         return this.param;
     }
+
+
 }
